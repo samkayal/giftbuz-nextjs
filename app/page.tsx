@@ -48,7 +48,7 @@ export default function Home() {
           At GiftBuz, we do all kinds of custom work!
         </h1>
         <p className="text-center text-gray-600 max-w-3xl mx-auto mb-16">
-          Your one-stop destination for personalized gifting solutions! Based in the vibrant city of Kolkata, 
+          Your one-stop place for personalized gifting solutions! Based in the vibrant city of Kolkata, 
           we specialize in custom printing on a wide range of products like t-shirts, cups, water bottles, 
           sippers, bracelets, photo frames, keyrings, and so much more.
         </p>
