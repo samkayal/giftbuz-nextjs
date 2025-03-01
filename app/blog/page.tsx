@@ -2,13 +2,26 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import Link from "next/link";
+import Image from "next/image"; // Import Next.js Image component
+import { Button } from "@/components/ui/button";
+import { ArrowLeft } from "lucide-react";
+import { Metadata } from "next";
 
-type Article = {
-  title: string;
-  excerpt: string;
-  slug: string;
-  date: string;
-  coverImage?: string;
+export const metadata: Metadata = {
+  title: 'Blog | GiftBuz',
+  description: 'Explore our latest articles about gift-giving, celebrations, and thoughtful presents for every occasion.',
+  openGraph: {
+    title: 'Blog | GiftBuz',
+    description: 'Explore our latest articles about gift-giving, celebrations, and thoughtful presents for every occasion.',
+    type: 'website',
+    url: 'https://giftbuz.com/blog',
+    siteName: 'GiftBuz',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Blog | GiftBuz',
+    description: 'Explore our latest articles about gift-giving, celebrations, and thoughtful presents for every occasion.',
+  }
 };
 
 export default function BlogPage() {
@@ -16,59 +29,68 @@ export default function BlogPage() {
   const postsDirectory = path.join(process.cwd(), "posts");
   const filenames = fs.readdirSync(postsDirectory);
 
-  const allPostsData = filenames.map((filename) => {
-    const filePath = path.join(postsDirectory, filename);
-    const fileContent = fs.readFileSync(filePath, "utf-8");
-    const { data } = matter(fileContent);
-
-    return {
-      title: data.title,
-      excerpt: data.excerpt,
-      slug: filename.replace(/\.md$/, ""),
-      date: data.date,
-      coverImage: data.coverImage || null,
-    };
-  });
+  const posts = filenames
+    .map((filename) => {
+      const filePath = path.join(postsDirectory, filename);
+      const fileContent = fs.readFileSync(filePath, "utf-8");
+      const { data } = matter(fileContent);
+      return {
+        slug: filename.replace(/\.md$/, ""),
+        title: data.title,
+        date: new Date(data.date),
+        excerpt: data.excerpt,
+        coverImage: data.coverImage,
+      };
+    })
+    .sort((a, b) => b.date.getTime() - a.date.getTime());
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-6 md:p-24 bg-white">
-      <section className="w-full pt-12">
-        <div className="container mx-auto space-y-6 md:space-y-12 px-4 md:px-6">
-          <div className="text-center space-y-2">
-            <h1 className="text-3xl md:text-5xl font-bold">Welcome to the Blog</h1>
-            <p className="text-zinc-500 text-sm md:text-xl">
-              Explore thought-provoking articles on a variety of topics.
-            </p>
-          </div>
-          <div className="grid gap-6 md:gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {allPostsData.map((post) => (
-              <article key={post.slug} className="h-full flex flex-col rounded-lg shadow-lg">
-                {post.coverImage && (
-                  <img
-                    src={post.coverImage}
-                    alt={post.title}
-                    className="object-cover w-full aspect-[4/3]"
-                  />
-                )}
-                <div className="flex-1 p-4 md:p-6">
-                  <Link href={`/blog/${post.slug}`}>
-                    <h3 className="text-xl md:text-2xl font-bold">{post.title}</h3>
-                  </Link>
-                  <p className="text-sm md:text-base mt-2">{post.excerpt}</p>
-                  <p className="text-xs md:text-sm text-zinc-600 mt-1 font-bold">
-                    Published on: {new Date(post.date).toLocaleDateString()}
-                  </p>
-                  <div className="flex justify-end">
-                    <Link href={`/blog/${post.slug}`}>
-                      <button className="border rounded px-3 py-1">Read More →</button>
-                    </Link>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
+    <main className="flex min-h-screen flex-col items-center justify-start p-4 bg-gray-50">
+      <header className="w-full max-w-7xl flex items-center justify-between mb-8">
+        <div>
+          <Link href="/">
+            <Button variant="outline">
+              <ArrowLeft className="h-4 w-4 mr-2" />
+              Back to Home
+            </Button>
+          </Link>
         </div>
-      </section>
+
+        <div>
+          <Link href="/" className="text-2xl font-medium">
+            giftbuz
+          </Link>
+        </div>
+
+        <div className="w-[100px]">
+          {/* Empty div for flex spacing */}
+        </div>
+      </header>
+
+      <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {posts.map((post) => (
+          <Link key={post.slug} href={`/blog/${post.slug}`}>
+            <article className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+              {post.coverImage && (
+                <Image
+                  src={post.coverImage}
+                  alt={post.title}
+                  width={600}
+                  height={300}
+                  className="w-full h-48 object-cover"
+                />
+              )}
+              <div className="p-6">
+                <h2 className="text-2xl font-bold mb-2 text-gray-800">{post.title}</h2>
+                <p className="text-gray-600 mb-4">{post.excerpt}</p>
+                <p className="text-sm text-gray-500">
+                  {post.date.toLocaleDateString()}
+                </p>
+              </div>
+            </article>
+          </Link>
+        ))}
+      </div>
     </main>
   );
 }
