@@ -13,8 +13,8 @@ export default function Home() {
               <Image
                 src="/Logo.png" // Update this path as needed
                 alt="Giftbuz Logo"
-                width={70}
-                height={70}
+                width={75}
+                height={75}
               />
             </Link>
             <div className="space-x-6">
