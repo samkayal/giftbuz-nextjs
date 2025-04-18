@@ -6,38 +6,44 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="container mx-auto px-4 py-4"> {/* Reduced from py-6 */}
-  <nav className="flex items-center justify-between">
-    <div className="flex items-center space-x-8">
-      <Link href="/" className="text-2xl font-medium">
-        Giftbuz
-      </Link>
-      <div className="space-x-6">
-        <Link href="/" className="text-gray-600 hover:text-gray-900">
-          Home
-        </Link>
-        <Link href="/blog" className="text-gray-600 hover:text-gray-900">
-          Blog
-        </Link>
-      </div>
-    </div>
-    <div className="flex items-center space-x-4">
-      <a
-        href="https://wa.me/919674621337?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20your%20custom%20products!"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-gray-600 hover:text-gray-900"
-      >
-        Contact Us
-      </a>
-      <MessageCircle className="h-6 w-6 text-teal-500" />
-    </div>
-  </nav>
+      <header className="container mx-auto px-4 py-4">
+        <nav className="flex items-center justify-between">
+          <div className="flex items-center space-x-8">
+            <Link href="/" className="flex items-center space-x-2">
+              <Image
+                src="/logo.png" // Update this path as needed
+                alt="Giftbuz Logo"
+                width={40}
+                height={40}
+              />
+              <span className="text-2xl font-medium text-gray-900">Giftbuz</span>
+            </Link>
+            <div className="space-x-6">
+              <Link href="/" className="text-gray-600 hover:text-gray-900">
+                Home
+              </Link>
+              <Link href="/blog" className="text-gray-600 hover:text-gray-900">
+                Blog
+              </Link>
+            </div>
+          </div>
+          <div className="flex items-center space-x-4">
+            <a
+              href="https://wa.me/919674621337?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20your%20custom%20products!"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-600 hover:text-gray-900"
+            >
+              Contact Us
+            </a>
+            <MessageCircle className="h-6 w-6 text-teal-500" />
+          </div>
+        </nav>
       </header>
 
       {/* Hero Section */}
-      <section className="container mx-auto px-4 py-8"> {/* Reduced from py-12 */}
-        <div className="relative h-[450px] w-full"> {/* Reduced height */}
+      <section className="container mx-auto px-4 py-8">
+        <div className="relative h-[450px] w-full">
           <Image
             src="/header_img.jpg"
             alt="Custom T-shirt with beach sunset design"
@@ -101,59 +107,58 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="container mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-gray-900">
-  <div>
-    <h2 className="text-2xl font-medium mb-4">Contact Us</h2>
-    <a
-      href="https://wa.me/919674621337?text=Hi%2C%20I%20want%20to%20know%20about%20your%20custom%20products!"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="text-gray-900 hover:underline"
-    >
-      Message us on WhatsApp
-    </a>
-    <p className="mt-2">Kolkata</p>
-    <p className="mt-2">+91 9674621337</p>
-    <p>skayal.kol@gmail.com</p>
-  </div>
-  <div className="md:col-span-2">
-    <h2 className="text-2xl font-medium mb-4">Order Now</h2>
-    <div className="grid grid-cols-2 gap-x-8">
-      <ul className="space-y-2">
-        {["Custom T-Shirt", "Custom Sipper", "Custom Photo Frame"].map(
-          (product, index) => (
-            <li key={index}>
-              <a
-                href={`https://wa.me/919674621337?text=I'm%20interested%20in%20${product}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:underline text-gray-900"
-              >
-                {product}
-              </a>
-            </li>
-          )
-        )}
-      </ul>
-      <ul className="space-y-2">
-        {["Custom Cup", "Custom Keyring", "Custom Bracelet"].map(
-          (product, index) => (
-            <li key={index}>
-              <a
-                href={`https://wa.me/919674621337?text=I'm%20interested%20in%20${product}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:underline text-gray-900"
-              >
-                {product}
-              </a>
-            </li>
-          )
-        )}
-      </ul>
-    </div>
-  </div>
+        <div>
+          <h2 className="text-2xl font-medium mb-4">Contact Us</h2>
+          <a
+            href="https://wa.me/919674621337?text=Hi%2C%20I%20want%20to%20know%20about%20your%20custom%20products!"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-900 hover:underline"
+          >
+            Message us on WhatsApp
+          </a>
+          <p className="mt-2">Kolkata</p>
+          <p className="mt-2">+91 9674621337</p>
+          <p>skayal.kol@gmail.com</p>
+        </div>
+        <div className="md:col-span-2">
+          <h2 className="text-2xl font-medium mb-4">Order Now</h2>
+          <div className="grid grid-cols-2 gap-x-8">
+            <ul className="space-y-2">
+              {["Custom T-Shirt", "Custom Sipper", "Custom Photo Frame"].map(
+                (product, index) => (
+                  <li key={index}>
+                    <a
+                      href={`https://wa.me/919674621337?text=I'm%20interested%20in%20${product}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:underline text-gray-900"
+                    >
+                      {product}
+                    </a>
+                  </li>
+                )
+              )}
+            </ul>
+            <ul className="space-y-2">
+              {["Custom Cup", "Custom Keyring", "Custom Bracelet"].map(
+                (product, index) => (
+                  <li key={index}>
+                    <a
+                      href={`https://wa.me/919674621337?text=I'm%20interested%20in%20${product}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:underline text-gray-900"
+                    >
+                      {product}
+                    </a>
+                  </li>
+                )
+              )}
+            </ul>
+          </div>
+        </div>
       </footer>
-
     </div>
   );
 }
