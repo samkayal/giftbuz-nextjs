@@ -1,274 +1,162 @@
-# GiftBuz Home Page Component (Next.js)
-
-```tsx
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import { MessageCircle } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white text-gray-900">
+    <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="w-full bg-white shadow-sm">
-        <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <Link href="/" className="flex items-center space-x-2">
-            <Image src="/Logo.png" alt="GiftBuz Logo" width={60} height={60} />
-          </Link>
-          <div className="space-x-6 hidden md:flex">
-            <Link href="/" className="hover:text-blue-500">Home</Link>
-            <Link href="/blog" className="hover:text-blue-500">Blog</Link>
-            <a
-              href="https://wa.me/919674621337?text=Hi%2C%20I%20want%20to%20know%20about%20your%20custom%20products!"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-blue-500 flex items-center gap-1"
-            >
-              Contact Us <MessageCircle className="h-5 w-5 text-teal-500" />
-            </a>
-          </div>
-        </nav>
-      </header>
-
-      {/* Hero Image */}
-      <section className="relative h-[400px] w-full">
-        <div className="relative w-full h-full">
-          <Image
-            src="/header_img.jpg"
-            alt="Custom T-Shirt Banner"
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
-      </section>
-
-      {/* Intro Text */}
-      <section className="container mx-auto px-4 py-12 text-center">
-        <h1 className="text-4xl font-semibold mb-4">
-          At GiftBuz, we do all kinds of custom work!
-        </h1>
-        <p className="max-w-2xl mx-auto text-gray-600">
-          From stylish t-shirts to personalized gifts like mugs, sippers, keychains,
-          and more – we’re your one-stop custom shop based in vibrant Kolkata.
-        </p>
-      </section>
-
-      {/* T-Shirt Catalog */}
-      <section className="container mx-auto px-4 py-12">
-        <h2 className="text-3xl font-semibold text-center mb-8">Custom T-Shirt Catalog</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {[...].map((product, idx) => (
-            <div key={idx} className="bg-white shadow-md rounded-lg overflow-hidden">
-              <div className="relative w-full h-64">
-                <Image
-                  src={product.img}
-                  alt={product.title}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-4">
-                <h3 className="text-lg font-semibold">{product.title}</h3>
-                <p className="text-gray-600">High-quality custom print tee.</p>
-                <p className="font-bold mt-2">{product.price}</p>
-                <Link
-                  href="https://www.giftbuz.com/products/tshirt"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block mt-3 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
-                >
-                  Buy Now
-                </Link>
-              </div>
+      <header className="container mx-auto px-4 py-4">
+        <nav className="flex items-center justify-between">
+          <div className="flex items-center space-x-8">
+            <Link href="/" className="flex items-center space-x-2">
+              <Image
+                src="/Logo.png" // Update this path as needed
+                alt="Giftbuz Logo"
+                width={75}
+                height={75}
+              />
+            </Link>
+            <div className="space-x-6">
+              <Link href="/" className="text-gray-600 hover:text-gray-900">
+                Home
+              </Link>
+              <Link href="/blog" className="text-gray-600 hover:text-gray-900">
+                Blog
+              </Link>
             </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-gray-100 mt-20 py-12 px-4 md:px-8">
-        <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
-          <div>
-            <h2 className="text-xl font-bold mb-4">Contact Us</h2>
-            <p>Kolkata, India</p>
-            <p>+91 9674621337</p>
-            <p>skayal.kol@gmail.com</p>
+          </div>
+          <div className="flex items-center space-x-4">
             <a
-              href="https://wa.me/919674621337"
+              href="https://wa.me/919674621337?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20your%20custom%20products!"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-600 hover:underline mt-2 inline-block"
+              className="text-gray-600 hover:text-gray-900"
             >
-              Message on WhatsApp
+              Contact Us
             </a>
-          </div>
-          <div>
-            <h2 className="text-xl font-bold mb-4">Order Now</h2>
-            <ul className="space-y-2">
-              {["T-Shirt", "Sipper", "Photo Frame", "Cup", "Keyring", "Bracelet"].map((item, idx) => (
-                <li key={idx}>
-                  <Link
-                    href={`/products/${item.toLowerCase().replace(/\s/g, "-")}`}
-                    className="hover:underline text-gray-800"
-                  >
-                    Custom {item}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h2 className="text-xl font-bold mb-4">About GiftBuz</h2>
-            <p className="text-gray-700">
-              We believe every gift tells a story. Whether it's for a loved one or for
-              business branding, we deliver creativity and quality in every custom order.
-            </p>
-          </div>
-        </div>
-        <p className="text-center text-gray-500 mt-10 text-sm">
-          &copy; {new Date().getFullYear()} GiftBuz. All rights reserved.
-        </p>
-      </footer>
-    </div>
-  );
-}
-"use client";
-
-import Image from "next/image";
-import Link from "next/link";
-import { MessageCircle } from "lucide-react";
-
-export default function Home() {
-  return (
-    <div className="min-h-screen bg-white text-gray-900">
-      {/* Header */}
-      <header className="w-full bg-white shadow-sm">
-        <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <Link href="/" className="flex items-center space-x-2">
-            <Image src="/Logo.png" alt="GiftBuz Logo" width={60} height={60} />
-          </Link>
-          <div className="space-x-6 hidden md:flex">
-            <Link href="/" className="hover:text-blue-500">Home</Link>
-            <Link href="/blog" className="hover:text-blue-500">Blog</Link>
-            <a
-              href="https://wa.me/919674621337?text=Hi%2C%20I%20want%20to%20know%20about%20your%20custom%20products!"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-blue-500 flex items-center gap-1"
-            >
-              Contact Us <MessageCircle className="h-5 w-5 text-teal-500" />
-            </a>
+            <MessageCircle className="h-6 w-6 text-teal-500" />
           </div>
         </nav>
       </header>
 
-      {/* Hero Image */}
-      <section className="relative h-[400px] w-full">
-        <div className="relative w-full h-full">
+      {/* Hero Section */}
+      <section className="container mx-auto px-4 py-8">
+        <div className="relative h-[450px] w-full">
           <Image
             src="/header_img.jpg"
-            alt="Custom T-Shirt Banner"
+            alt="Custom T-shirt with beach sunset design"
             fill
             className="object-cover"
-            priority
           />
         </div>
       </section>
 
-      {/* Intro Text */}
-      <section className="container mx-auto px-4 py-12 text-center">
-        <h1 className="text-4xl font-semibold mb-4">
+      {/* Main Content */}
+      <section className="container mx-auto px-4">
+        <h1 className="text-center text-4xl font-medium mb-6 text-gray-900">
           At GiftBuz, we do all kinds of custom work!
         </h1>
-        <p className="max-w-2xl mx-auto text-gray-600">
-          From stylish t-shirts to personalized gifts like mugs, sippers, keychains,
-          and more – we’re your one-stop custom shop based in vibrant Kolkata.
+        <p className="text-center text-gray-600 max-w-3xl mx-auto mb-16">
+          Your one-stop destination for personalized gifting solutions! Based in
+          the vibrant city of Kolkata, we specialize in custom printing on a
+          wide range of products like t-shirts, cups, water bottles, sippers,
+          bracelets, photo frames, keyrings, and so much more.
         </p>
-      </section>
 
-      {/* T-Shirt Catalog */}
-      <section className="container mx-auto px-4 py-12">
-        <h2 className="text-3xl font-semibold text-center mb-8">Custom T-Shirt Catalog</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {/* Product Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {[
-            { title: "Graphic Tee", price: "$19.99", img: "/tshirt1.jpg" },
-            { title: "Minimal Logo Tee", price: "$14.99", img: "/tshirt2.jpg" },
-            { title: "Custom Name Tee", price: "$24.99", img: "/tshirt3.jpg" },
-            { title: "Sports Jersey Tee", price: "$29.99", img: "/tshirt4.jpg" },
-            { title: "Retro Vibes Tee", price: "$21.99", img: "/tshirt5.jpg" },
-          ].map((product, idx) => (
-            <div key={idx} className="bg-white shadow-md rounded-lg overflow-hidden">
-              <div className="relative w-full h-64">
-                <Image
-                  src={product.img}
-                  alt={product.title}
-                  fill
-                  className="object-cover"
-                />
+            { src: "/tshirt.jpg", text: "custom t-shirt", query: "T-shirt printing" },
+            { src: "/sipper.webp", text: "custom sipper", query: "Sipper" },
+            { src: "/photo.webp", text: "custom photo frame", query: "Photo Frame" },
+            { src: "/keychains.webp", text: "custom keyring", query: "Keyring" },
+            { src: "/bands.jpg", text: "custom bracelet", query: "Bracelet" },
+            { src: "/cupps.png", text: "custom cup", query: "Cup" },
+          ].map((product, index) => (
+            <a
+              key={index}
+              href={`https://wa.me/919674621337?text=I'm%20interested%20in%20custom%20${product.query}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative h-64 group"
+            >
+              <Image
+                src={product.src}
+                alt={product.text}
+                fill
+                className="object-cover transition-opacity duration-500 group-hover:opacity-75"
+              />
+              <div className="absolute inset-0 bg-black opacity-0 transition-opacity duration-500 group-hover:opacity-60"></div>
+              <div className="absolute inset-0 flex items-center justify-center text-white text-xl font-medium opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                {product.text}
               </div>
-              <div className="p-4">
-                <h3 className="text-lg font-semibold">{product.title}</h3>
-                <p className="text-gray-600">High-quality custom print tee.</p>
-                <p className="font-bold mt-2">{product.price}</p>
-                <Link
-                  href="https://www.giftbuz.com/products/tshirt"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block mt-3 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
-                >
-                  Buy Now
-                </Link>
-              </div>
-            </div>
+            </a>
           ))}
         </div>
+
+        {/* Mission Statement */}
+        <p className="text-center text-gray-900 max-w-3xl mx-auto mb-16">
+          We believe every gift tells a story, and we&apos;re here to make yours
+          truly unforgettable. Whether it&apos;s a heartfelt present for a loved
+          one, a quirky keepsake for a friend, or branded merchandise for your
+          business, we deliver creativity and quality with every order.
+        </p>
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-100 mt-20 py-12 px-4 md:px-8">
-        <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
-          <div>
-            <h2 className="text-xl font-bold mb-4">Contact Us</h2>
-            <p>Kolkata, India</p>
-            <p>+91 9674621337</p>
-            <p>skayal.kol@gmail.com</p>
-            <a
-              href="https://wa.me/919674621337"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-600 hover:underline mt-2 inline-block"
-            >
-              Message on WhatsApp
-            </a>
-          </div>
-          <div>
-            <h2 className="text-xl font-bold mb-4">Order Now</h2>
+      <footer className="container mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-gray-900">
+        <div>
+          <h2 className="text-2xl font-medium mb-4">Contact Us</h2>
+          <a
+            href="https://wa.me/919674621337?text=Hi%2C%20I%20want%20to%20know%20about%20your%20custom%20products!"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-900 hover:underline"
+          >
+            Message us on WhatsApp
+          </a>
+          <p className="mt-2">Kolkata</p>
+          <p className="mt-2">+91 9674621337</p>
+          <p>skayal.kol@gmail.com</p>
+        </div>
+        <div className="md:col-span-2">
+          <h2 className="text-2xl font-medium mb-4">Order Now</h2>
+          <div className="grid grid-cols-2 gap-x-8">
             <ul className="space-y-2">
-              {["T-Shirt", "Sipper", "Photo Frame", "Cup", "Keyring", "Bracelet"].map((item, idx) => (
-                <li key={idx}>
-                  <Link
-                    href={`/products/${item.toLowerCase().replace(/\s/g, "-")}`}
-                    className="hover:underline text-gray-800"
-                  >
-                    Custom {item}
-                  </Link>
-                </li>
-              ))}
+              {["Custom T-Shirt", "Custom Sipper", "Custom Photo Frame"].map(
+                (product, index) => (
+                  <li key={index}>
+                    <a
+                      href={`https://wa.me/919674621337?text=I'm%20interested%20in%20${product}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:underline text-gray-900"
+                    >
+                      {product}
+                    </a>
+                  </li>
+                )
+              )}
+            </ul>
+            <ul className="space-y-2">
+              {["Custom Cup", "Custom Keyring", "Custom Bracelet"].map(
+                (product, index) => (
+                  <li key={index}>
+                    <a
+                      href={`https://wa.me/919674621337?text=I'm%20interested%20in%20${product}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:underline text-gray-900"
+                    >
+                      {product}
+                    </a>
+                  </li>
+                )
+              )}
             </ul>
           </div>
-          <div>
-            <h2 className="text-xl font-bold mb-4">About GiftBuz</h2>
-            <p className="text-gray-700">
-              We believe every gift tells a story. Whether it's for a loved one or for
-              business branding, we deliver creativity and quality in every custom order.
-            </p>
-          </div>
         </div>
-        <p className="text-center text-gray-500 mt-10 text-sm">
-          &copy; {new Date().getFullYear()} GiftBuz. All rights reserved.
-        </p>
       </footer>
     </div>
   );
