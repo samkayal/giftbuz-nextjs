@@ -10,7 +10,7 @@ export default function Home() {
   <nav className="flex items-center justify-between">
     <div className="flex items-center space-x-8">
       <Link href="/" className="text-2xl font-medium">
-        giftbuz
+        Giftbuz
       </Link>
       <div className="space-x-6">
         <Link href="/" className="text-gray-600 hover:text-gray-900">
