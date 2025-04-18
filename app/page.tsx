@@ -30,13 +30,15 @@ export default function Home() {
 
       {/* Hero Image */}
       <section className="relative h-[400px] w-full">
-        <Image
-          src="/header_img.jpg"
-          alt="Custom T-Shirt Banner"
-          fill
-          className="object-cover"
-          priority
-        />
+        <div className="relative w-full h-full">
+          <Image
+            src="/header_img.jpg"
+            alt="Custom T-Shirt Banner"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
       </section>
 
       {/* Intro Text */}
