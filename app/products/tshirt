@@ -22,7 +22,9 @@
           <h2 class="text-lg font-semibold">Graphic Tee</h2>
           <p class="text-gray-600">Stylish graphic print on soft cotton.</p>
           <p class="font-bold mt-2">$19.99</p>
-          <button class="mt-3 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">Buy Now</button>
+          <a href="https://www.giftbuz.com/products/tshirt" target="_blank" class="inline-block mt-3 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
+            Buy Now
+          </a>
         </div>
       </div>
 
@@ -33,7 +35,9 @@
           <h2 class="text-lg font-semibold">Minimal Logo Tee</h2>
           <p class="text-gray-600">Simple, clean logo design for daily wear.</p>
           <p class="font-bold mt-2">$14.99</p>
-          <button class="mt-3 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">Buy Now</button>
+          <a href="https://www.giftbuz.com/products/tshirt" target="_blank" class="inline-block mt-3 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
+            Buy Now
+          </a>
         </div>
       </div>
 
@@ -44,7 +48,9 @@
           <h2 class="text-lg font-semibold">Custom Name Tee</h2>
           <p class="text-gray-600">Add your name or message to the front.</p>
           <p class="font-bold mt-2">$24.99</p>
-          <button class="mt-3 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">Buy Now</button>
+          <a href="https://www.giftbuz.com/products/tshirt" target="_blank" class="inline-block mt-3 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
+            Buy Now
+          </a>
         </div>
       </div>
 
@@ -55,7 +61,9 @@
           <h2 class="text-lg font-semibold">Sports Jersey Tee</h2>
           <p class="text-gray-600">Athletic-style shirt with team name customization.</p>
           <p class="font-bold mt-2">$29.99</p>
-          <button class="mt-3 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">Buy Now</button>
+          <a href="https://www.giftbuz.com/products/tshirt" target="_blank" class="inline-block mt-3 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
+            Buy Now
+          </a>
         </div>
       </div>
 
@@ -66,7 +74,9 @@
           <h2 class="text-lg font-semibold">Retro Vibes Tee</h2>
           <p class="text-gray-600">Old-school colors and vintage fonts.</p>
           <p class="font-bold mt-2">$21.99</p>
-          <button class="mt-3 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">Buy Now</button>
+          <a href="https://www.giftbuz.com/products/tshirt" target="_blank" class="inline-block mt-3 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
+            Buy Now
+          </a>
         </div>
       </div>
 
