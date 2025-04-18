@@ -11,7 +11,7 @@ export default function Home() {
           <div className="flex items-center space-x-8">
             <Link href="/" className="flex items-center space-x-2">
               <Image
-                src="/logo.png" // Update this path as needed
+                src="/Logo.png" // Update this path as needed
                 alt="Giftbuz Logo"
                 width={40}
                 height={40}
