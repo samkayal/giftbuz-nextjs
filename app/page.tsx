@@ -16,7 +16,6 @@ export default function Home() {
                 width={70}
                 height={70}
               />
-              <span className="text-2xl font-medium text-gray-900">Giftbuz</span>
             </Link>
             <div className="space-x-6">
               <Link href="/" className="text-gray-600 hover:text-gray-900">
