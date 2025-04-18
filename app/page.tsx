@@ -11,7 +11,7 @@ export default function Home() {
           <div className="flex items-center space-x-8">
             <Link href="/" className="flex items-center space-x-2">
               <Image
-                src="/Logo.png" // Update this path as needed
+                src="/Logo.png"
                 alt="Giftbuz Logo"
                 width={75}
                 height={75}
@@ -64,22 +64,20 @@ export default function Home() {
           bracelets, photo frames, keyrings, and so much more.
         </p>
 
-        {/* Product Grid */}
+        {/* Product Grid with Links to Product Catalog Pages */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {[
-            { src: "/tshirt.jpg", text: "custom t-shirt", query: "T-shirt printing" },
-            { src: "/sipper.webp", text: "custom sipper", query: "Sipper" },
-            { src: "/photo.webp", text: "custom photo frame", query: "Photo Frame" },
-            { src: "/keychains.webp", text: "custom keyring", query: "Keyring" },
-            { src: "/bands.jpg", text: "custom bracelet", query: "Bracelet" },
-            { src: "/cupps.png", text: "custom cup", query: "Cup" },
+            { src: "/tshirt.jpg", text: "Custom T-Shirt", slug: "tshirt" },
+            { src: "/sipper.webp", text: "Custom Sipper", slug: "sipper" },
+            { src: "/photo.webp", text: "Custom Photo Frame", slug: "photo-frame" },
+            { src: "/keychains.webp", text: "Custom Keyring", slug: "keyring" },
+            { src: "/bands.jpg", text: "Custom Bracelet", slug: "bracelet" },
+            { src: "/cupps.png", text: "Custom Cup", slug: "cup" },
           ].map((product, index) => (
-            <a
+            <Link
               key={index}
-              href={`https://wa.me/919674621337?text=I'm%20interested%20in%20custom%20${product.query}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="relative h-64 group"
+              href={`/products/${product.slug}`}
+              className="relative h-64 group block"
             >
               <Image
                 src={product.src}
@@ -87,11 +85,11 @@ export default function Home() {
                 fill
                 className="object-cover transition-opacity duration-500 group-hover:opacity-75"
               />
-              <div className="absolute inset-0 bg-black opacity-0 transition-opacity duration-500 group-hover:opacity-60"></div>
+              <div className="absolute inset-0 bg-black opacity-0 transition-opacity duration-500 group-hover:opacity-60" />
               <div className="absolute inset-0 flex items-center justify-center text-white text-xl font-medium opacity-0 transition-opacity duration-500 group-hover:opacity-100">
                 {product.text}
               </div>
-            </a>
+            </Link>
           ))}
         </div>
 
@@ -124,36 +122,28 @@ export default function Home() {
           <h2 className="text-2xl font-medium mb-4">Order Now</h2>
           <div className="grid grid-cols-2 gap-x-8">
             <ul className="space-y-2">
-              {["Custom T-Shirt", "Custom Sipper", "Custom Photo Frame"].map(
-                (product, index) => (
-                  <li key={index}>
-                    <a
-                      href={`https://wa.me/919674621337?text=I'm%20interested%20in%20${product}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:underline text-gray-900"
-                    >
-                      {product}
-                    </a>
-                  </li>
-                )
-              )}
+              {["T-Shirt", "Sipper", "Photo Frame"].map((item, index) => (
+                <li key={index}>
+                  <Link
+                    href={`/products/${item.toLowerCase().replace(" ", "-")}`}
+                    className="hover:underline text-gray-900"
+                  >
+                    Custom {item}
+                  </Link>
+                </li>
+              ))}
             </ul>
             <ul className="space-y-2">
-              {["Custom Cup", "Custom Keyring", "Custom Bracelet"].map(
-                (product, index) => (
-                  <li key={index}>
-                    <a
-                      href={`https://wa.me/919674621337?text=I'm%20interested%20in%20${product}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:underline text-gray-900"
-                    >
-                      {product}
-                    </a>
-                  </li>
-                )
-              )}
+              {["Cup", "Keyring", "Bracelet"].map((item, index) => (
+                <li key={index}>
+                  <Link
+                    href={`/products/${item.toLowerCase()}`}
+                    className="hover:underline text-gray-900"
+                  >
+                    Custom {item}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
