@@ -14,7 +14,7 @@ export default function Home() {
                 src="/Logo.png" // Update this path as needed
                 alt="Giftbuz Logo"
                 width={60}
-                height={40}
+                height={60}
               />
               <span className="text-2xl font-medium text-gray-900">Giftbuz</span>
             </Link>
