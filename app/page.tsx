@@ -11,7 +11,7 @@ export default function Home() {
           <div className="flex items-center space-x-8">
             <Link href="/" className="flex items-center space-x-2">
               <Image
-                src="/Logo.png" // Update this path as needed
+                src="/Logo.png"
                 alt="Giftbuz Logo"
                 width={75}
                 height={75}
@@ -67,18 +67,16 @@ export default function Home() {
         {/* Product Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {[
-            { src: "/tshirt.jpg", text: "custom t-shirt", query: "T-shirt printing" },
-            { src: "/sipper.webp", text: "custom sipper", query: "Sipper" },
-            { src: "/photo.webp", text: "custom photo frame", query: "Photo Frame" },
-            { src: "/keychains.webp", text: "custom keyring", query: "Keyring" },
-            { src: "/bands.jpg", text: "custom bracelet", query: "Bracelet" },
-            { src: "/cupps.png", text: "custom cup", query: "Cup" },
+            { src: "/tshirt.jpg", text: "custom t-shirt", path: "/products/tshirt" },
+            { src: "/sipper.webp", text: "custom sipper", path: "/products/sipper" },
+            { src: "/photo.webp", text: "custom photo frame", path: "/products/photo-frame" },
+            { src: "/keychains.webp", text: "custom keyring", path: "/products/keyring" },
+            { src: "/bands.jpg", text: "custom bracelet", path: "/products/bracelet" },
+            { src: "/cupps.png", text: "custom cup", path: "/products/cup" },
           ].map((product, index) => (
-            <a
+            <Link
               key={index}
-              href={`https://wa.me/919674621337?text=I'm%20interested%20in%20custom%20${product.query}`}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={product.path}
               className="relative h-64 group"
             >
               <Image
@@ -91,7 +89,7 @@ export default function Home() {
               <div className="absolute inset-0 flex items-center justify-center text-white text-xl font-medium opacity-0 transition-opacity duration-500 group-hover:opacity-100">
                 {product.text}
               </div>
-            </a>
+            </Link>
           ))}
         </div>
 
@@ -124,36 +122,38 @@ export default function Home() {
           <h2 className="text-2xl font-medium mb-4">Order Now</h2>
           <div className="grid grid-cols-2 gap-x-8">
             <ul className="space-y-2">
-              {["Custom T-Shirt", "Custom Sipper", "Custom Photo Frame"].map(
-                (product, index) => (
-                  <li key={index}>
-                    <a
-                      href={`https://wa.me/919674621337?text=I'm%20interested%20in%20${product}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:underline text-gray-900"
-                    >
-                      {product}
-                    </a>
-                  </li>
-                )
-              )}
+              <li>
+                <Link href="/products/tshirt" className="hover:underline text-gray-900">
+                  Custom T-Shirt
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/sipper" className="hover:underline text-gray-900">
+                  Custom Sipper
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/photo-frame" className="hover:underline text-gray-900">
+                  Custom Photo Frame
+                </Link>
+              </li>
             </ul>
             <ul className="space-y-2">
-              {["Custom Cup", "Custom Keyring", "Custom Bracelet"].map(
-                (product, index) => (
-                  <li key={index}>
-                    <a
-                      href={`https://wa.me/919674621337?text=I'm%20interested%20in%20${product}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:underline text-gray-900"
-                    >
-                      {product}
-                    </a>
-                  </li>
-                )
-              )}
+              <li>
+                <Link href="/products/cup" className="hover:underline text-gray-900">
+                  Custom Cup
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/keyring" className="hover:underline text-gray-900">
+                  Custom Keyring
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/bracelet" className="hover:underline text-gray-900">
+                  Custom Bracelet
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
