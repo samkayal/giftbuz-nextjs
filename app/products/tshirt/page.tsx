@@ -1,76 +1,114 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const product = {
-  name: "Custom T-Shirt",
-  description:
-    "Design your own custom T-shirt with your favorite images, quotes, or company branding. Choose from multiple sizes and colors.",
-  image: "/tshirt.jpg",
-  price: "₹499",
-  sizes: ["S", "M", "L", "XL", "XXL"],
-  colors: ["Black", "White", "Red", "Blue"],
-  material: "100% Cotton",
-  delivery: "Delivery in 5-7 business days",
-};
+const tShirtDesigns = [
+  {
+    id: 1,
+    name: "Sunset Vibes",
+    image: "/tshirts/sunset.jpg",
+    price: "₹499",
+    description: "Vibrant sunset print perfect for beach lovers.",
+  },
+  {
+    id: 2,
+    name: "Minimalist Text",
+    image: "/tshirts/minimal.jpg",
+    price: "₹499",
+    description: "Clean and classy design with custom text.",
+  },
+  {
+    id: 3,
+    name: "Anime Hero",
+    image: "/tshirts/anime.jpg",
+    price: "₹549",
+    description: "Fan-favorite anime character on premium cotton.",
+  },
+  {
+    id: 4,
+    name: "Couple Combo",
+    image: "/tshirts/couple.jpg",
+    price: "₹899 (Set of 2)",
+    description: "Perfect gift for couples – includes two T-shirts.",
+  },
+  {
+    id: 5,
+    name: "Corporate Branding",
+    image: "/tshirts/branding.jpg",
+    price: "₹599",
+    description: "Ideal for teams or events – add your logo!",
+  },
+  {
+    id: 6,
+    name: "Birthday Special",
+    image: "/tshirts/birthday.jpg",
+    price: "₹499",
+    description: "Celebrate in style with our birthday edition.",
+  },
+  {
+    id: 7,
+    name: "Graphic Streetwear",
+    image: "/tshirts/streetwear.jpg",
+    price: "₹649",
+    description: "Bold graphics meet street fashion aesthetics.",
+  },
+  {
+    id: 8,
+    name: "Custom Your Way",
+    image: "/tshirts/custom.jpg",
+    price: "From ₹499",
+    description: "Upload your own design – we’ll print it!",
+  },
+];
 
 export default function TShirtProductPage() {
   return (
     <div className="min-h-screen bg-white">
+      {/* Header */}
       <header className="container mx-auto px-4 py-6">
         <Link href="/" className="text-teal-600 text-lg font-semibold hover:underline">
           ← Back to Home
         </Link>
       </header>
 
-      <main className="container mx-auto px-4 py-8 grid md:grid-cols-2 gap-12">
-        {/* Product Image */}
-        <div className="relative h-[450px] w-full">
-          <Image
-            src={product.image}
-            alt={product.name}
-            fill
-            className="object-cover rounded-lg"
-          />
-        </div>
+      {/* Title Section */}
+      <section className="container mx-auto px-4 mb-8">
+        <h1 className="text-4xl font-semibold text-gray-900 mb-2">Custom T-Shirts</h1>
+        <p className="text-gray-600 max-w-2xl">
+          Explore our collection of unique T-shirt designs. Pick your favorite or
+          customize your own. Sizes available: S, M, L, XL, XXL.
+        </p>
+      </section>
 
-        {/* Product Info */}
-        <div>
-          <h1 className="text-4xl font-semibold text-gray-900 mb-4">{product.name}</h1>
-          <p className="text-gray-600 mb-6">{product.description}</p>
-
-          <div className="mb-4">
-            <span className="font-medium">Price:</span>{" "}
-            <span className="text-teal-600 font-bold text-xl">{product.price}</span>
+      {/* T-Shirt Grid */}
+      <section className="container mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 pb-16">
+        {tShirtDesigns.map((shirt) => (
+          <div key={shirt.id} className="border rounded-lg shadow-sm overflow-hidden">
+            <div className="relative h-64 w-full">
+              <Image
+                src={shirt.image}
+                alt={shirt.name}
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="p-4">
+              <h2 className="text-xl font-semibold text-gray-800">{shirt.name}</h2>
+              <p className="text-sm text-gray-600 mb-2">{shirt.description}</p>
+              <p className="text-teal-600 font-bold mb-4">{shirt.price}</p>
+              <a
+                href={`https://wa.me/919674621337?text=Hi%2C%20I%20want%20to%20order%20the%20${encodeURIComponent(
+                  shirt.name
+                )}%20T-shirt!`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-teal-600 text-white px-4 py-2 rounded hover:bg-teal-700 transition text-sm"
+              >
+                Order via WhatsApp
+              </a>
+            </div>
           </div>
-
-          <div className="mb-4">
-            <span className="font-medium">Material:</span> {product.material}
-          </div>
-
-          <div className="mb-4">
-            <span className="font-medium">Available Sizes:</span>{" "}
-            {product.sizes.join(", ")}
-          </div>
-
-          <div className="mb-4">
-            <span className="font-medium">Colors:</span>{" "}
-            {product.colors.join(", ")}
-          </div>
-
-          <div className="mb-4">
-            <span className="font-medium">Delivery:</span> {product.delivery}
-          </div>
-
-          <a
-            href="https://wa.me/919674621337?text=Hi%2C%20I%20want%20to%20order%20a%20custom%20T-shirt!"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-6 inline-block bg-teal-600 text-white px-6 py-3 rounded hover:bg-teal-700 transition"
-          >
-            Order via WhatsApp
-          </a>
-        </div>
-      </main>
+        ))}
+      </section>
     </div>
   );
 }
