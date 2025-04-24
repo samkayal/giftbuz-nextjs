@@ -3,11 +3,15 @@ import Link from "next/link";
 
 const tShirtDesigns = [
   {
-    id: 1,
-    name: "Sunset Vibes",
-    image: "/tshirts/sunset.jpg",
-    price: "₹499",
-    description: "Vibrant sunset print perfect for beach lovers.",
+    name: "Custom T-Shirt",
+  description:
+    "Design your own custom T-shirt with your favorite images, quotes, or company branding. Choose from multiple sizes and colors.",
+  image: "/tshirt.jpg",
+  price: "₹499",
+  sizes: ["S", "M", "L", "XL", "XXL"],
+  colors: ["Black", "White", "Red", "Blue"],
+  material: "100% Cotton",
+  delivery: "Delivery in 5-7 business days",
   },
   {
     id: 2,
