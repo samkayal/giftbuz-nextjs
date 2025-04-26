@@ -71,9 +71,11 @@ export default function Home() {
             { src: "/sipper.webp", text: "custom sipper", path: "/products/sipper" },
             { src: "/photo.webp", text: "custom photo frame", path: "/products/photo-frame" },
             { src: "/keychains.webp", text: "custom keyring", path: "/products/keyring" },
-            { src: "/bands.jpg", text: "custom bracelet", path: "/products/bracelet" },
+            { src: "/sticker.jpg", text: "custom sticker", path: "/products/sticker" },
             { src: "/cupps.png", text: "custom cup", path: "/products/cup" },
-            { src: "/Fridge-magnate.png", text: "custom Fridge-magnate", path: "/products/Fridge-magnate" },   
+            { src: "/Fridge-magnate.png", text: "custom Fridge-magnate", path: "/products/Fridge-magnate" },
+            { src: "/coaster .png", text: "custom coaster ", path: "/products/coaster " },
+            { src: "/id card .png", text: "custom id card ", path: "/products/id-card " },   
           ].map((product, index) => (
             <Link
               key={index}
