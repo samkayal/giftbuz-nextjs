@@ -3,6 +3,7 @@ import Link from "next/link";
 
 const tShirtDesigns = [
   {
+   id: 1,
     name: "Custom T-Shirt",
   description:
     "Design your own custom T-shirt with your favorite images, quotes, or company branding. Choose from multiple sizes and colors.",
