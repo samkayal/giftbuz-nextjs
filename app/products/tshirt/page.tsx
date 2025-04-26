@@ -1,82 +1,107 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const tShirtDesigns = [
+type TShirtDesign = {
+  id: number;
+  name: string;
+  description: string;
+  image: string;
+  price: string;
+  sizes: string[];
+  colors: string[];
+  material: string;
+  delivery: string;
+};
+
+const tShirtDesigns: TShirtDesign[] = [
   {
-   id: 1,
+    id: 1,
     name: "Custom T-Shirt",
-  description:
-    "Design your own custom T-shirt with your favorite images, quotes, or company branding. Choose from multiple sizes and colors.",
-  image: "/tshirt.jpg",
-  price: "₹499",
-  sizes: ["S", "M", "L", "XL", "XXL"],
-  colors: ["Black", "White", "Red", "Blue"],
-  material: "100% Cotton",
-  delivery: "Delivery in 5-7 business days",
+    description:
+      "Design your own custom T-shirt with your favorite images, quotes, or company branding. Choose from multiple sizes and colors.",
+    image: "/tshirt.jpg",
+    price: "₹499",
+    sizes: ["S", "M", "L", "XL", "XXL"],
+    colors: ["Black", "White", "Red", "Blue"],
+    material: "100% Cotton",
+    delivery: "Delivery in 5-7 business days",
   },
   {
     id: 2,
     name: "Minimalist Text",
-    description:
-   "Clean and classy design with custom text.",
-  image: "/tshirts/minimal.jpg",
-  price: "₹499",
-  sizes: ["S", "M", "L", "XL", "XXL"],
-  colors: ["Black", "White", "Red", "Blue"],
-  material: "100% Cotton",
-  delivery: "Delivery in 5-7 business days",
+    description: "Clean and classy design with custom text.",
+    image: "/tshirts/minimal.jpg",
+    price: "₹499",
+    sizes: ["S", "M", "L", "XL", "XXL"],
+    colors: ["Black", "White", "Red", "Blue"],
+    material: "100% Cotton",
+    delivery: "Delivery in 5-7 business days",
   },
   {
     id: 3,
     name: "Anime Hero",
-      description:
-    "Fan-favorite anime character on premium cotton.",
-  image: "/tshirts/anime.jpg",
-  price: "₹549",
-  sizes: ["S", "M", "L", "XL", "XXL"],
-  colors: ["Black", "White", "Red", "Blue"],
-  material: "100% Cotton",
-  delivery: "Delivery in 5-7 business days",   
+    description: "Fan-favorite anime character on premium cotton.",
+    image: "/tshirts/anime.jpg",
+    price: "₹549",
+    sizes: ["S", "M", "L", "XL", "XXL"],
+    colors: ["Black", "White", "Red", "Blue"],
+    material: "100% Cotton",
+    delivery: "Delivery in 5-7 business days",
   },
   {
     id: 4,
     name: "Couple Combo",
-     description:
-    "Perfect gift for couples – includes two T-shirts.",
-  image: "/tshirts/couple.jpg",
-  price: "₹899 (Set of 2)",
-  sizes: ["S", "M", "L", "XL", "XXL"],
-  colors: ["Black", "White", "Red", "Blue"],
-  material: "100% Cotton",
-  delivery: "Delivery in 5-7 business days",   
+    description: "Perfect gift for couples – includes two T-shirts.",
+    image: "/tshirts/couple.jpg",
+    price: "₹899 (Set of 2)",
+    sizes: ["S", "M", "L", "XL", "XXL"],
+    colors: ["Black", "White", "Red", "Blue"],
+    material: "100% Cotton",
+    delivery: "Delivery in 5-7 business days",
   },
   {
     id: 5,
     name: "Corporate Branding",
+    description: "Ideal for teams or events – add your logo!",
     image: "/tshirts/branding.jpg",
     price: "₹599",
-    description: "Ideal for teams or events – add your logo!",
+    sizes: ["S", "M", "L", "XL", "XXL"],
+    colors: ["Black", "White", "Red", "Blue"],
+    material: "100% Cotton",
+    delivery: "Delivery in 5-7 business days",
   },
   {
     id: 6,
     name: "Birthday Special",
+    description: "Celebrate in style with our birthday edition.",
     image: "/tshirts/birthday.jpg",
     price: "₹499",
-    description: "Celebrate in style with our birthday edition.",
+    sizes: ["S", "M", "L", "XL", "XXL"],
+    colors: ["Black", "White", "Red", "Blue"],
+    material: "100% Cotton",
+    delivery: "Delivery in 5-7 business days",
   },
   {
     id: 7,
     name: "Graphic Streetwear",
+    description: "Bold graphics meet street fashion aesthetics.",
     image: "/tshirts/streetwear.jpg",
     price: "₹649",
-    description: "Bold graphics meet street fashion aesthetics.",
+    sizes: ["S", "M", "L", "XL", "XXL"],
+    colors: ["Black", "White", "Red", "Blue"],
+    material: "100% Cotton",
+    delivery: "Delivery in 5-7 business days",
   },
   {
     id: 8,
     name: "Custom Your Way",
+    description: "Upload your own design – we’ll print it!",
     image: "/tshirts/custom.jpg",
     price: "From ₹499",
-    description: "Upload your own design – we’ll print it!",
+    sizes: ["S", "M", "L", "XL", "XXL"],
+    colors: ["Black", "White", "Red", "Blue"],
+    material: "100% Cotton",
+    delivery: "Delivery in 5-7 business days",
   },
 ];
 
@@ -114,6 +139,10 @@ export default function TShirtProductPage() {
             <div className="p-4">
               <h2 className="text-xl font-semibold text-gray-800">{shirt.name}</h2>
               <p className="text-sm text-gray-600 mb-2">{shirt.description}</p>
+              <p className="text-sm text-gray-600">Material: {shirt.material}</p>
+              <p className="text-sm text-gray-600">Sizes: {shirt.sizes.join(", ")}</p>
+              <p className="text-sm text-gray-600">Colors: {shirt.colors.join(", ")}</p>
+              <p className="text-sm text-gray-600 mb-2">{shirt.delivery}</p>
               <p className="text-teal-600 font-bold mb-4">{shirt.price}</p>
               <a
                 href={`https://wa.me/919674621337?text=Hi%2C%20I%20want%20to%20order%20the%20${encodeURIComponent(
