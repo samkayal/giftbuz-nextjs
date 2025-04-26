@@ -73,6 +73,7 @@ export default function Home() {
             { src: "/keychains.webp", text: "custom keyring", path: "/products/keyring" },
             { src: "/bands.jpg", text: "custom bracelet", path: "/products/bracelet" },
             { src: "/cupps.png", text: "custom cup", path: "/products/cup" },
+            { src: "/Fridge-magnate.png", text: "custom Fridge-magnate", path: "/products/Fridge-magnate" },   
           ].map((product, index) => (
             <Link
               key={index}
