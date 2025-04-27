@@ -74,8 +74,8 @@ export default function Home() {
             { src: "/sticker.jpg", text: "custom sticker", path: "/products/sticker" },
             { src: "/cupps.png", text: "custom cup", path: "/products/cup" },
             { src: "/Fridge-magnate.jpg", text: "custom Fridge-magnate", path: "/products/Fridge-magnate" },
-            { src: "/coaster .png", text: "custom coaster ", path: "/products/coaster " },
-            { src: "/id card .png", text: "custom id card ", path: "/products/id-card " },   
+            { src: "/coaster .jpg", text: "custom coaster ", path: "/products/coaster " },
+            { src: "/id card .jpg", text: "custom id card ", path: "/products/id-card " },   
           ].map((product, index) => (
             <Link
               key={index}
