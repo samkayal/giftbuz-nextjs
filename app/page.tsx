@@ -153,8 +153,8 @@ export default function Home() {
                 </Link>
               </li>
               <li>
-                <Link href="/products/bracelet" className="hover:underline text-gray-900">
-                  Custom Bracelet
+                <Link href="/products/sticker" className="hover:underline text-gray-900">
+                  Custom Sticker
                 </Link>
               </li>
             </ul>
