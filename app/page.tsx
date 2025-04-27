@@ -73,7 +73,7 @@ export default function Home() {
             { src: "/keychains.webp", text: "custom keyring", path: "/products/keyring" },
             { src: "/sticker.jpg", text: "custom sticker", path: "/products/sticker" },
             { src: "/cupps.png", text: "custom cup", path: "/products/cup" },
-            { src: "/Fridge-magnate.png", text: "custom Fridge-magnate", path: "/products/Fridge-magnate" },
+            { src: "/Fridge-magnate.jpg", text: "custom Fridge-magnate", path: "/products/Fridge-magnate" },
             { src: "/coaster .png", text: "custom coaster ", path: "/products/coaster " },
             { src: "/id card .png", text: "custom id card ", path: "/products/id-card " },   
           ].map((product, index) => (
