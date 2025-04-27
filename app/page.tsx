@@ -67,15 +67,15 @@ export default function Home() {
         {/* Product Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {[
-            { src: "/tshirt_1.jpg", text: "custom t-shirt", path: "/products/tshirt" },
-            { src: "/sipper.jpg", text: "custom sipper", path: "/products/sipper" },
-            { src: "/photo.webp", text: "custom photo frame", path: "/products/photo-frame" },
-            { src: "/keychains.webp", text: "custom keyring", path: "/products/keyring" },
-            { src: "/sticker.jpg", text: "custom sticker", path: "/products/sticker" },
-            { src: "/cupps.png", text: "custom cup", path: "/products/cup" },
-            { src: "/Fridge-magnate.jpg", text: "custom Fridge-magnate", path: "/products/Fridge-magnate" },
-            { src: "/coaster .jpg", text: "custom coaster ", path: "/products/coaster " },
-            { src: "/id card .jpg", text: "custom id card ", path: "/products/id-card " },   
+            { src: "/tshirt_1.jpg", text: "Custom T-Shirt", path: "/products/tshirt" },
+            { src: "/sipper.jpg", text: "Custom Sipper", path: "/products/sipper" },
+            { src: "/photo.webp", text: "Custom Photo Frame", path: "/products/photo-frame" },
+            { src: "/keychains.webp", text: "Custom Keyring", path: "/products/keyring" },
+            { src: "/sticker.jpg", text: "Custom Sticker", path: "/products/sticker" },
+            { src: "/cupps.png", text: "Custom Cup", path: "/products/cup" },
+            { src: "/Fridge-magnate.jpg", text: "Custom Fridge-Magnate", path: "/products/Fridge-magnate" },
+            { src: "/coaster .jpg", text: "Custom Coaster ", path: "/products/coaster " },
+            { src: "/id card.jpg", text: "Custom Id-card ", path: "/products/id-card " },   
           ].map((product, index) => (
             <Link
               key={index}
