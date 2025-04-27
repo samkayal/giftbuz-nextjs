@@ -162,6 +162,16 @@ export default function Home() {
                   Custom Sticker
                 </Link>
               </li>
+                            <li>
+                <Link href="/products/coaster " className="hover:underline text-gray-900">
+                  Custom Coaster
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/id-card " className="hover:underline text-gray-900">
+                  Custom ID-Card
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
