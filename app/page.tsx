@@ -68,7 +68,7 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {[
             { src: "/tshirt.jpg", text: "custom t-shirt", path: "/products/tshirt" },
-            { src: "/sipper.webp", text: "custom sipper", path: "/products/sipper" },
+            { src: "/sipper.jpg", text: "custom sipper", path: "/products/sipper" },
             { src: "/photo.webp", text: "custom photo frame", path: "/products/photo-frame" },
             { src: "/keychains.webp", text: "custom keyring", path: "/products/keyring" },
             { src: "/sticker.jpg", text: "custom sticker", path: "/products/sticker" },
