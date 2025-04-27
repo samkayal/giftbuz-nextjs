@@ -140,6 +140,11 @@ export default function Home() {
                   Custom Photo Frame
                 </Link>
               </li>
+              <li>
+                <Link href="/products/Fridge-magnate" className="hover:underline text-gray-900">
+                  Custom Fridge-Magnate
+                </Link>
+              </li>
             </ul>
             <ul className="space-y-2">
               <li>
