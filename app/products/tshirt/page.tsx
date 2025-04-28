@@ -30,7 +30,7 @@ const tShirtDesigns: TShirtDesign[] = [
     id: 2,
     name: "Saved By Grace",
     description: "Clean and classy design with custom text.",
-    image: "/tshirts/Saved_By_Grace.jpg",
+    image: "/Saved_By_Grace.jpg",
     price: "₹499",
     sizes: ["S", "M", "L", "XL", "XXL"],
     colors: ["Black", "White", "Red", "Blue"],
