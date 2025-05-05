@@ -16,13 +16,13 @@ type PhotoFrameDesign = {
 const photoFrameDesigns: PhotoFrameDesign[] = [
   {
     id: 1,
-    name: "Classic Wooden Frame",
-    description: "Elegant wooden frame perfect for home décor.",
-    image: "/frames/wooden.jpg",
-    price: "₹799",
+    name: "Magic Mirror",
+    description: "Magic Mirror Cum Heart Shape Photo Frame with LED Light.",
+    image: "/Magic_Mirror.png",
+    price: "₹549",
     sizes: ["5x7", "8x10", "11x14"],
-    colors: ["Brown", "Black"],
-    material: "Premium Wood",
+    colors: ["Red", "White"],
+    material: "Glass",
     delivery: "Delivery in 5-7 business days",
   },
   {
