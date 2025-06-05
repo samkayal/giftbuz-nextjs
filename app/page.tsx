@@ -119,7 +119,7 @@ export default function Home() {
           </a>
           <p className="mt-2">Kolkata</p>
           <p className="mt-2">+91 9674621337</p>
-          <p>skayal.kol@gmail.com</p>
+          <p>giftbuz.in@gmail.com</p>
         </div>
         <div className="md:col-span-2">
           <h2 className="text-2xl font-medium mb-4">Order Now</h2>
