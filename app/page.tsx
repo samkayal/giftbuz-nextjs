@@ -11,7 +11,7 @@ export default function Home() {
           <div className="flex items-center space-x-8">
             <Link href="/" className="flex items-center space-x-2">
               <Image
-                src="/Logo.png"
+                src="/Logo.jpg"
                 alt="Giftbuz Logo"
                 width={75}
                 height={75}
