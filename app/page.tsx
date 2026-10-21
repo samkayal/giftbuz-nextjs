@@ -28,7 +28,7 @@ export default function Home() {
           </div>
           <div className="flex items-center space-x-4">
             <a
-              href="https://wa.me/919674621337?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20your%20custom%20products!"
+              href="https://wa.me/919674621338?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20your%20custom%20products!"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-600 hover:text-gray-900"
@@ -110,7 +110,7 @@ export default function Home() {
         <div>
           <h2 className="text-2xl font-medium mb-4">Contact Us</h2>
           <a
-            href="https://wa.me/919674621337?text=Hi%2C%20I%20want%20to%20know%20about%20your%20custom%20products!"
+            href="https://wa.me/919674621338?text=Hi%2C%20I%20want%20to%20know%20about%20your%20custom%20products!"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-900 hover:underline"
@@ -118,7 +118,7 @@ export default function Home() {
             Message us on WhatsApp
           </a>
           <p className="mt-2">Kolkata</p>
-          <p className="mt-2">+91 9674621337</p>
+          <p className="mt-2">+91 9674621338</p>
           <p>giftbuz.in@gmail.com</p>
         </div>
         <div className="md:col-span-2">
