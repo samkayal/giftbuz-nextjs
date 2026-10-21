@@ -177,8 +177,9 @@ export default function ReviewsPage() {
               Add Review
             </button>
 
+            {/* Direct Google Review Link */}
             <a
-              href="https://search.google.com/local/writereview?placeid=YOUR_GOOGLE_PLACE_ID"
+              href="https://g.page/r/CbAoiBQJE5HrEAI/review"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium px-5 py-3 rounded-xl transition shadow"
@@ -236,111 +237,4 @@ export default function ReviewsPage() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Image URL (optional)</label>
-                <input
-                  type="url"
-                  value={avatarUrl}
-                  onChange={(e) => setAvatarUrl(e.target.value)}
-                  className="w-full border rounded-lg px-3 py-2 text-sm focus:outline-teal-600"
-                  placeholder="Paste profile photo URL if any"
-                />
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Review Comment *</label>
-              <textarea
-                required
-                rows={3}
-                value={comment}
-                onChange={(e) => setComment(e.target.value)}
-                className="w-full border rounded-lg px-3 py-2 text-sm focus:outline-teal-600"
-                placeholder="Share your experience with GiftBuz..."
-              />
-            </div>
-
-            <div className="flex justify-end gap-3">
-              <button
-                type="button"
-                onClick={() => setShowAddForm(false)}
-                className="px-4 py-2 border rounded-lg text-sm text-gray-600 hover:bg-gray-50"
-              >
-                Cancel
-              </button>
-              <button
-                type="submit"
-                className="px-5 py-2 bg-teal-600 hover:bg-teal-700 text-white rounded-lg text-sm font-medium"
-              >
-                Post Review
-              </button>
-            </div>
-          </form>
-        )}
-
-        {/* Reviews List */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {reviews.map((item) => (
-            <div
-              key={item.id}
-              className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col justify-between"
-            >
-              <div>
-                {/* User Info Header */}
-                <div className="flex items-center justify-between mb-3">
-                  <div className="flex items-center gap-3">
-                    {/* Conditionally renders an image if one was provided in the review, otherwise renders styled initial badge */}
-                    {item.avatar ? (
-                      <img
-                        src={item.avatar}
-                        alt={item.name}
-                        className="w-11 h-11 rounded-full object-cover border"
-                      />
-                    ) : (
-                      <div className="w-11 h-11 rounded-full bg-teal-100 text-teal-800 flex items-center justify-center font-bold text-sm border border-teal-200">
-                        {getInitials(item.name)}
-                      </div>
-                    )}
-                    <div>
-                      <h3 className="font-semibold text-gray-900 flex items-center gap-1.5">
-                        {item.name}
-                        <CheckCircle className="w-4 h-4 text-blue-500 fill-blue-50" />
-                      </h3>
-                      <span className="text-xs text-gray-400">{item.date}</span>
-                    </div>
-                  </div>
-
-                  <span className="text-xs font-bold bg-neutral-100 text-blue-600 px-2.5 py-1 rounded-md border">
-                    Google
-                  </span>
-                </div>
-
-                {/* Star Rating Display */}
-                <div className="flex items-center gap-1 mb-3">
-                  {[...Array(5)].map((_, idx) => (
-                    <Star
-                      key={idx}
-                      className={`w-4 h-4 ${
-                        idx < item.rating
-                          ? "fill-amber-400 text-amber-400"
-                          : "text-gray-200"
-                      }`}
-                    />
-                  ))}
-                </div>
-
-                {/* Comment Text */}
-                <p className="text-gray-700 text-sm leading-relaxed">&ldquo;{item.comment}&rdquo;</p>
-              </div>
-
-              {item.productBought && (
-                <div className="mt-4 pt-3 border-t border-gray-100 text-xs text-gray-500">
-                  <span className="font-semibold text-gray-700">Product:</span> {item.productBought}
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      </main>
-    </div>
-  );
-}
+                <label className="block text
