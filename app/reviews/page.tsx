@@ -14,7 +14,7 @@ interface Review {
   productBought?: string;
 }
 
-const GOOGLE_REVIEW_URL = "https://g.page/r/CbAoiBQJE5HrEAI/review";
+const GOOGLE_REVIEW_URL = "https://search.google.com/local/writereview?placeid=YOUR_ACTUAL_PLACE_ID_HERE";
 
 const initialReviews: Review[] = [
   {
