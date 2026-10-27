@@ -89,8 +89,9 @@ export default function ReviewsPage() {
       avatar: avatarUrl.trim() || undefined,
     };
 
-    setReviews([newReview, ...reviews]);
+    setReviews((prev) => [newReview, ...prev]);
     setName("");
+    setRating(5);
     setComment("");
     setProductBought("");
     setAvatarUrl("");
@@ -114,20 +115,20 @@ export default function ReviewsPage() {
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900">
       {/* Header */}
-      <header className="bg-white border-b sticky top-0 z-10">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+      <header className="sticky top-0 z-10 border-b bg-white">
+        <div className="container mx-auto flex items-center justify-between px-4 py-4">
           <div className="flex items-center space-x-8">
             <Link href="/" className="text-2xl font-bold tracking-tight text-gray-900">
               Gift<span className="text-teal-600">Buz</span>
             </Link>
-            <nav className="space-x-6 hidden sm:block">
-              <Link href="/" className="text-gray-600 hover:text-gray-900 font-medium">
+            <nav className="hidden space-x-6 sm:block">
+              <Link href="/" className="font-medium text-gray-600 hover:text-gray-900">
                 Home
               </Link>
-              <Link href="/blog" className="text-gray-600 hover:text-gray-900 font-medium">
+              <Link href="/blog" className="font-medium text-gray-600 hover:text-gray-900">
                 Blog
               </Link>
-              <Link href="/reviews" className="text-teal-600 font-semibold">
+              <Link href="/reviews" className="font-semibold text-teal-600">
                 Reviews
               </Link>
             </nav>
@@ -137,7 +138,7 @@ export default function ReviewsPage() {
             href="https://wa.me/919674621338?text=Hi%2C%20I%20have%20a%20question%20about%20your%20reviews%20and%20products!"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-gray-700 hover:text-gray-900 font-medium"
+            className="flex items-center gap-2 font-medium text-gray-700 hover:text-gray-900"
           >
             <span className="hidden sm:inline">Contact Us</span>
             <MessageCircle className="h-6 w-6 text-teal-500" />
@@ -146,23 +147,23 @@ export default function ReviewsPage() {
       </header>
 
       {/* Main Container */}
-      <main className="container mx-auto px-4 py-12 max-w-5xl">
+      <main className="container mx-auto max-w-5xl px-4 py-12">
         {/* Rating Header Card */}
-        <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border mb-8 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="mb-8 flex flex-col items-center justify-between gap-6 rounded-2xl border bg-white p-6 shadow-sm sm:p-8 md:flex-row">
           <div className="text-center md:text-left">
             <h1 className="text-3xl font-bold text-gray-900">Customer Reviews</h1>
-            <p className="text-gray-500 mt-1">Real ratings & reviews from Google verified customers</p>
+            <p className="mt-1 text-gray-500">Real ratings & reviews from Google verified customers</p>
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-3">
-            <div className="flex items-center gap-3 bg-amber-50 px-4 py-2.5 rounded-xl border border-amber-200">
+            <div className="flex items-center gap-3 rounded-xl border border-amber-200 bg-amber-50 px-4 py-2.5">
               <div className="text-3xl font-extrabold text-amber-900">{averageRating}</div>
               <div>
                 <div className="flex text-amber-400">
-                  {[...Array(5)].map((_, i) => (
+                  {Array.from({ length: 5 }).map((_, i) => (
                     <Star
                       key={i}
-                      className={`w-4 h-4 ${
+                      className={`h-4 w-4 ${
                         i < Math.round(Number(averageRating))
                           ? "fill-amber-400 text-amber-400"
                           : "text-gray-300"
@@ -170,7 +171,7 @@ export default function ReviewsPage() {
                     />
                   ))}
                 </div>
-                <div className="text-xs font-semibold text-gray-600 mt-0.5">
+                <div className="mt-0.5 text-xs font-semibold text-gray-600">
                   Based on {reviews.length} reviews
                 </div>
               </div>
@@ -178,10 +179,10 @@ export default function ReviewsPage() {
 
             <button
               type="button"
-              onClick={() => setShowAddForm(!showAddForm)}
-              className="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-700 text-white font-medium px-4 py-2.5 rounded-xl transition shadow-sm"
+              onClick={() => setShowAddForm((prev) => !prev)}
+              className="inline-flex items-center gap-2 rounded-xl bg-teal-600 px-4 py-2.5 font-medium text-white shadow-sm transition hover:bg-teal-700"
             >
-              <Plus className="w-4 h-4" />
+              <Plus className="h-4 w-4" />
               Write Review
             </button>
 
@@ -190,10 +191,10 @@ export default function ReviewsPage() {
               href={GOOGLE_REVIEW_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2.5 rounded-xl transition shadow-sm"
+              className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-4 py-2.5 font-medium text-white shadow-sm transition hover:bg-blue-700"
             >
               Google Review
-              <ExternalLink className="w-4 h-4" />
+              <ExternalLink className="h-4 w-4" />
             </a>
           </div>
         </div>
@@ -202,28 +203,28 @@ export default function ReviewsPage() {
         {showAddForm && (
           <form
             onSubmit={handleAddReview}
-            className="bg-white p-6 rounded-2xl shadow-sm border mb-8 space-y-4"
+            className="mb-8 space-y-4 rounded-2xl border bg-white p-6 shadow-sm"
           >
             <h2 className="text-xl font-bold text-gray-900">Write a Review</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Your Name *</label>
+                <label className="mb-1 block text-sm font-medium text-gray-700">Your Name *</label>
                 <input
                   type="text"
                   required
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="w-full border rounded-lg px-3 py-2 text-sm focus:outline-teal-600"
+                  className="w-full rounded-lg border px-3 py-2 text-sm focus:outline-teal-600"
                   placeholder="e.g. Rahul Sen"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Star Rating</label>
+                <label className="mb-1 block text-sm font-medium text-gray-700">Star Rating</label>
                 <select
                   value={rating}
                   onChange={(e) => setRating(Number(e.target.value))}
-                  className="w-full border rounded-lg px-3 py-2 text-sm focus:outline-teal-600"
+                  className="w-full rounded-lg border px-3 py-2 text-sm focus:outline-teal-600"
                 >
                   <option value={5}>5 Stars - Excellent</option>
                   <option value={4}>4 Stars - Good</option>
@@ -234,40 +235,40 @@ export default function ReviewsPage() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
+                <label className="mb-1 block text-sm font-medium text-gray-700">
                   Product Customized (optional)
                 </label>
                 <input
                   type="text"
                   value={productBought}
                   onChange={(e) => setProductBought(e.target.value)}
-                  className="w-full border rounded-lg px-3 py-2 text-sm focus:outline-teal-600"
+                  className="w-full rounded-lg border px-3 py-2 text-sm focus:outline-teal-600"
                   placeholder="e.g. Custom Mug, T-Shirt"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
+                <label className="mb-1 block text-sm font-medium text-gray-700">
                   Avatar / Photo URL (optional)
                 </label>
                 <input
                   type="url"
                   value={avatarUrl}
                   onChange={(e) => setAvatarUrl(e.target.value)}
-                  className="w-full border rounded-lg px-3 py-2 text-sm focus:outline-teal-600"
+                  className="w-full rounded-lg border px-3 py-2 text-sm focus:outline-teal-600"
                   placeholder="https://example.com/photo.jpg"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Feedback / Comment *</label>
+              <label className="mb-1 block text-sm font-medium text-gray-700">Feedback / Comment *</label>
               <textarea
                 required
                 rows={3}
                 value={comment}
                 onChange={(e) => setComment(e.target.value)}
-                className="w-full border rounded-lg px-3 py-2 text-sm focus:outline-teal-600"
+                className="w-full rounded-lg border px-3 py-2 text-sm focus:outline-teal-600"
                 placeholder="Tell us about the print quality, customer support, and delivery..."
               />
             </div>
@@ -282,7 +283,7 @@ export default function ReviewsPage() {
               </button>
               <button
                 type="submit"
-                className="px-5 py-2 text-sm font-medium bg-teal-600 hover:bg-teal-700 text-white rounded-lg transition shadow-sm"
+                className="rounded-lg bg-teal-600 px-5 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-teal-700"
               >
                 Post Review
               </button>
@@ -293,7 +294,7 @@ export default function ReviewsPage() {
         {/* Reviews Feed */}
         <div className="space-y-4">
           {reviews.map((rev) => (
-            <article key={rev.id} className="bg-white p-6 rounded-2xl border shadow-sm space-y-3">
+            <article key={rev.id} className="space-y-3 rounded-2xl border bg-white p-6 shadow-sm">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   {rev.avatar ? (
@@ -301,24 +302,24 @@ export default function ReviewsPage() {
                     <img
                       src={rev.avatar}
                       alt={rev.name}
-                      className="w-10 h-10 rounded-full object-cover border"
+                      className="h-10 w-10 rounded-full border object-cover"
                     />
                   ) : (
-                    <div className="w-10 h-10 rounded-full bg-teal-100 text-teal-700 font-bold flex items-center justify-center text-sm">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-teal-100 text-sm font-bold text-teal-700">
                       {getInitials(rev.name)}
                     </div>
                   )}
                   <div>
-                    <h3 className="font-semibold text-gray-900 leading-tight">{rev.name}</h3>
+                    <h3 className="font-semibold leading-tight text-gray-900">{rev.name}</h3>
                     <p className="text-xs text-gray-400">{rev.date}</p>
                   </div>
                 </div>
 
                 <div className="flex text-amber-400">
-                  {[...Array(5)].map((_, i) => (
+                  {Array.from({ length: 5 }).map((_, i) => (
                     <Star
                       key={i}
-                      className={`w-4 h-4 ${
+                      className={`h-4 w-4 ${
                         i < rev.rating ? "fill-amber-400 text-amber-400" : "text-gray-200"
                       }`}
                     />
@@ -327,20 +328,20 @@ export default function ReviewsPage() {
               </div>
 
               {rev.productBought && (
-                <span className="inline-block bg-teal-50 text-teal-700 border border-teal-200 text-xs px-2.5 py-0.5 rounded-full font-medium">
+                <span className="inline-block rounded-full border border-teal-200 bg-teal-50 px-2.5 py-0.5 text-xs font-medium text-teal-700">
                   {rev.productBought}
                 </span>
               )}
 
-              <p className="text-gray-700 text-sm leading-relaxed">{rev.comment}</p>
+              <p className="text-sm leading-relaxed text-gray-700">{rev.comment}</p>
             </article>
           ))}
         </div>
 
         {/* Google CTA Banner */}
-        <div className="mt-12 bg-blue-50 border border-blue-100 rounded-2xl p-6 text-center space-y-3">
+        <div className="mt-12 space-y-3 rounded-2xl border border-blue-100 bg-blue-50 p-6 text-center">
           <h2 className="text-lg font-bold text-blue-950">Loved our personalized gifts?</h2>
-          <p className="text-sm text-blue-700 max-w-md mx-auto">
+          <p className="mx-auto max-w-md text-sm text-blue-700">
             Take 30 seconds to drop us a quick rating and review on Google. It helps our local business grow!
           </p>
           <div>
@@ -348,10 +349,10 @@ export default function ReviewsPage() {
               href={GOOGLE_REVIEW_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium px-5 py-2.5 rounded-xl transition text-sm shadow-sm"
+              className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-2.5 text-sm font-medium text-white shadow-sm transition hover:bg-blue-700"
             >
               Leave a Google Review
-              <ExternalLink className="w-4 h-4" />
+              <ExternalLink className="h-4 w-4" />
             </a>
           </div>
         </div>
